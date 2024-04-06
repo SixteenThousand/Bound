@@ -1,3 +1,4 @@
 show;;ls
 build;;cd src && go build -o ../dist/
 exe;;./dist/bound -help
+test;;go test
