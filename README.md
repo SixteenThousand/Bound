@@ -29,6 +29,13 @@ and then save that data to a database.
   future use in a list of "Saved Timers"; Bound can also list those timers
 
 ### version 1.0.0
+Next, the aim will be to make a basic TUI interface for Bound, and add a 
+couple of useful features to make it more of a full clock app.
+- [ ] Ability to have multiple timers running at the same time
+- [ ] Alarm system
+- [ ] Stopwatch system
+
+### version 2.0.0
 Next, the aim will be to make tools to analyse data produced and to set a 
 timetable for future work.
 - [ ] Bound can create a calendar showing what work has been done between two 
@@ -42,7 +49,7 @@ timetable for future work.
     - The % of time spent on a project in a given period of the day (say, in 
       the morning)
 
-### version 2.0.0
+### version 3.0.0
 Finally, the aim will be to build a GUI frontend to Bound, from which all of 
 the functionality above should be available. This will be done in one (or 
 possibly both) of the following ways:
