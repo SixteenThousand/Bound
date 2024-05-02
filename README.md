@@ -1,11 +1,16 @@
 # Bound
+### Sometimes you don't want to manage, you just want to measure
 Bound is a project management tool, or more precisely a project *measurement* 
 tool; it helps you to measure how much time is spent on a project so you can 
 plan (very rough!) estimates for future projects.
 
 The idea of Bound is to help manage some variant of a pomodoro workflow; that 
-is, set a timer => work for that time => set another, shorter timer => break, 
-and then back to the first step again.
+is, set a timer => work for that time => set another, shorter timer => 
+break, and then back to the first step again, but crucially allows the user 
+to choose how long the timers they use will be.
+
+It will also get other clock app features (alarms, stopwatch, etc.) as 
+development goes on, but this is not the focus.
 
 ---
 
