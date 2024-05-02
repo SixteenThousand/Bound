@@ -1,9 +1,20 @@
-package tests
+package bound
 
 import(
-    "fmt"
+    "testing"
+    "time"
 )
 
-func durationStringTest() {
-    fmt.Println("Hello, World!")
+func TestDurationToString(t *testing.T) {
+    want 
+
+func TestRunTimer(t *testing.T) {
+    d,err := time.ParseDuration("2m")
+    if err != nil {
+        panic(err)
+    }
+    RunTimer(d)
 }
+
+
+func TestExamples
