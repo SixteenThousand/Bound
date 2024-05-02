@@ -1,40 +1,47 @@
-package Bound
+package bound
 
 import (
     "fmt"
     "time"
-    "math"
 )
 
 const MINS_PER_HR = 60
 const SECS_PER_MIN = 60
 
-func Run() {}
-
-func floor(x float64) int {
-    return int(math.Floor(x))
+func Run() {
+    println("We got here!")
+    durr, err := time.ParseDuration("2m")
+    if err != nil {
+        fmt.Println("Oh no, we got here.")
+        panic(1)
+    }
+    RunTimer(durr)
 }
 
-func (d Duration) String() {
+func DurationToString(d time.Duration) string {
     var hrs, mins, secs int
-    hrs = floor(d.Hours())
-    mins = floor(d.Minutes()) - (MINS_PER_HR * hrs)
-    secs = floor(d.Seconds) 
-        - (SECS_PER_MIN * MINS_PER_HR * hrs)
-        - (SECS_PER_MIN * mins)
+    hrs = Floor(d.Hours())
+    mins = Floor(d.Minutes()) - (MINS_PER_HR * hrs)
+    secs = (Floor(d.Seconds()) - 
+        (SECS_PER_MIN * MINS_PER_HR * hrs) -
+        (SECS_PER_MIN * mins))
     return fmt.Sprintf("%02dh %02d' %02d\"",hrs,mins,secs)
 }
 
-func RunTimer(d Duration) {
-    endMsg := false
-    time.Afterfunc(d,func() {
-        endMsg = true
-    })
+func RunTimer(d time.Duration) {
     end := time.Now().Add(d)
-    go func(endMsg) {
-        while !endMsg {
+    endMsg := make(chan int,1)
+    time.AfterFunc(d,func() {
+        endMsg <- 1
+    })
+    go func() {
+        for {
+            if len(endMsg) > 0 {
+                break
+            }
             fmt.Printf("\rTime remaining: %s",time.Until(end).String())
             time.Sleep(100 * time.Millisecond)
         }
     }()
+    println(<- endMsg)
 }
