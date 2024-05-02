@@ -1,4 +1,5 @@
-show;;ls
-build;;cd src && go build -o ../dist/
-exe;;./dist/bound -help
-test;;go test
+show = cat .yona
+build = go build -o dist/bound
+run = dist/bound --help
+test = go test
+benchmark = go test -bench
