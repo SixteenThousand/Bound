@@ -8,12 +8,9 @@ import (
 const MINS_PER_HR = 60
 const SECS_PER_MIN = 60
 
-func Run() {
-    durr, err := time.ParseDuration("2m")
-    if err != nil {
-        fmt.Println("Oh no, we got here.")
-        panic(1)
-    }
+func Run(timerLength string) {
+    durr, err := time.ParseDuration(timerLength)
+    if err != nil { panic("Invalid timer length!") }
     RunTimer(durr)
 }
 
